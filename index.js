@@ -1,7 +1,7 @@
 const server = require('./server.js')
 
 
-const port = 5000;
-server.listen(port, function() {
-  console.log(`\n=== Web API Listening on http://localhost:${port} ===\n`);
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, function() {
+  console.log(`\n=== Web API Listening on http://localhost:${PORT} ===\n`);
 });
