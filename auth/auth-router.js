@@ -30,10 +30,13 @@ router.post('/register', async (req, res) => {
     let {username, password} = req.body;
     try {
         const instructor = await Instructors.findBy( { username })
+
+      
         if (instructor && bcrypt.compareSync(password, instructor[0].password)){
           const token = generateToken(instructor);
+          
           res.status(200).json({message:`Welcome instructor ${username}!`,
-        token, 
+        token, instructor
         });
 
         }
