@@ -30,7 +30,7 @@ router.get('/:id/classes', restricted, async (req, res) => {
     // log error to server
     console.log(error);
     res.status(500).json({
-      message: 'Error getting the actions for the hub',
+      message: 'Error getting the classes for the instructor',
     });
   }
 });

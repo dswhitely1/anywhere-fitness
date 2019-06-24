@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const authRouter = require('./auth/auth-router.js');
 const insRouter = require('./instructors/ins-router.js');
-// const classRouter = require('./classes/class-router.js');
+const classRouter = require('./classes/class-router.js');
 
 const server = express();
 
@@ -19,7 +19,7 @@ server.get('/', (req, res) => {
 
 server.use('/api/auth', authRouter);
 server.use('/api/instructors', insRouter);
-// server.use('/api/classes', insRouter);
+server.use('/api/classes', classRouter);
 
 
 
