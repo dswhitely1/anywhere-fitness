@@ -42,7 +42,6 @@ function findInstructorClasses(id) {
              'c.city',
              'c.state',
              'c.zipcode'
-
              
              )
       .where({ instructor_id: id });
