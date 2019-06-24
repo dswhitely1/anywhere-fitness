@@ -8,8 +8,9 @@ module.exports = {
     findClasses,
     findClassById,
     addClass,
-//     remove,
-//     update, 
+    removeClass,
+    updateClass
+
   };
 
 
@@ -31,3 +32,13 @@ function addClass(something) {
     return db('Classes').insert(something)
 
 }
+
+function removeClass(id) {
+    return db('Classes').where({id}).del()
+
+}
+function updateClass(id, changes) {
+    return db('Classes').where({id}).update(changes);
+
+}
+
