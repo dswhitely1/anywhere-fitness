@@ -2,7 +2,7 @@ const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const Users = require('./auth-model.js');
+const Instructors = require('./auth-model.js');
 const secrets = require('./secrets.js'); //added
 
 // for endpoints beginning with /api/auth
@@ -10,10 +10,10 @@ const secrets = require('./secrets.js'); //added
 router.post('/register', async (req, res) => {
     try {
       //ideal if i get fullname username passowrd
-        const userInfo = await req.body
-        userInfo.password = await bcrypt.hashSync(userInfo.password, 10)
-        const user = await Users.addUser(userInfo)
-        res.status(201).json(user);
+        const insInfo = await req.body
+        insInfo.password = await bcrypt.hashSync(insInfo.password, 10)
+        const instructor = await Instructors.addUser(insInfo)
+        res.status(201).json(instructor);
     }
 
     catch (error){
@@ -29,10 +29,10 @@ router.post('/register', async (req, res) => {
 
     let {username, password} = req.body;
     try {
-        const user = await Users.findBy( { username })
-        if (user && bcrypt.compareSync(password, user[0].password)){
-          const token = generateToken(user);
-          res.status(200).json({message:`Welcome user!`,
+        const instructor = await Instructors.findBy( { username })
+        if (instructor && bcrypt.compareSync(password, instructor[0].password)){
+          const token = generateToken(instructor);
+          res.status(200).json({message:`Welcome instructor ${username}!`,
         token, 
         });
 
@@ -50,11 +50,10 @@ router.post('/register', async (req, res) => {
     }
 });
 
-function generateToken(user) {
+function generateToken(instructor) {
   const payload = {
-    subject: user.id, // standard claim = sub
-    username: user.username,
-    isInstructor: user.isInstructor //boolean if not instructor then is client. True by default.
+    subject: instructor.id, // standard claim = sub
+    username: instructor.username //boolean if not instructor then is client. True by default.
   };
   const secret = secrets.jwtSecret
   const options = {

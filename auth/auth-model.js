@@ -7,6 +7,10 @@ module.exports = {
     findBy,
     addUser}
 
+     function getAll() {
+        return db('volunteers') + db('businessess')
+      }
+
     
     async function addUser(user){
         const [id]= await db('Login').insert(user);
