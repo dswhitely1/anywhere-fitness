@@ -24,7 +24,7 @@ function findClasses() {
 
 
 function findClassById(id) {
-    return db('Classes').where({id})
+    return db('Classes').where({id}).first()
 
 }
 
