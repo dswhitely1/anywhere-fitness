@@ -81,7 +81,7 @@ exports.up = async function(knex, Promise) {
   
   exports.down = function(knex, Promise) {
     return knex.schema
-    .dropTableIfExists('Login')
+    .dropTableIfExists('ClientLogin')
     .dropTableIfExists('Categories')
     .dropTableIfExists('Classes')
   };

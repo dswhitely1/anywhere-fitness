@@ -2,6 +2,7 @@ const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 
+const ClientauthRouter = require('./auth/clientauth-router.js');
 
 const authRouter = require('./auth/auth-router.js');
 const insRouter = require('./instructors/ins-router.js');
@@ -16,7 +17,7 @@ server.use(cors());
 server.get('/', (req, res) => {
   res.send("It's alive!");
 });
-
+server.use('/api/auth', ClientauthRouter);
 server.use('/api/auth', authRouter);
 server.use('/api/instructors', insRouter);
 server.use('/api/classes', classRouter);
