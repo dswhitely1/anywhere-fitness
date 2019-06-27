@@ -44,7 +44,7 @@ exports.up = async function(knex, Promise) {
 // THEN >> a client can navigate to a "SEARCH NEW CLASSES" page
     //Endpoint: GET: api/classes
 
-    //THEN: client can api/classes/:categoryId 
+    //THEN: client can api/classes/:categoryId [DONE]
     //Chris needs to pass me the categoryId which he can get from the classes array
 
 // THEN >> a client can click through to a specific class
@@ -57,12 +57,14 @@ exports.up = async function(knex, Promise) {
 
 //sign up for a class:
 //POST:
-    //api/clients/:clientId/classes/:classId/signup
+    //api/clients/:clientId/classes/:classId/ [DONE]
 
     //api/clients/:clientId/classes
 
 
     //api/classes/:classId/signup
+
+
       
       
 

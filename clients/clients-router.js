@@ -6,7 +6,6 @@ const restricted = require('../auth/restricted.js');
 
 module.exports = router;
 
-
 router.get('/', restricted, async (req, res) => {
     try {
    
@@ -38,7 +37,7 @@ router.get('/', restricted, async (req, res) => {
     }
   });
 
-  router.post('/:clientId/classes/:classId', restricted, async (req, res) => {
+  router.post('/:clientId/classes/sign-up/:classId', restricted, async (req, res) => {
   
     try {
 
