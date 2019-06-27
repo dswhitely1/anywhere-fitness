@@ -38,6 +38,24 @@ router.get('/categories/:categoryId', restricted, async (req, res) => {
     }
   });
 
+//get class by id
+  router.get('/:classId', restricted, async (req, res) => {
+
+    try {
+      const classe = await Classes.findClassById(req.params.classId)
+      
+
+      res.status(200).json( classe);
+    } 
+    catch (error) {
+      // log error to server
+      console.log(error);
+      res.status(500).json({
+        message: 'Error getting the class',
+      });
+    }
+  });
+
   router.post('/', restricted, async (req, res) => {
 
     try {
