@@ -1,11 +1,11 @@
 
 exports.up = async function(knex, Promise) {
-    
+
+
     await knex.schema.createTable('ClassSignup', (tbl) => {
     tbl.increments();
     tbl
-      .integer('user_id')
-      .notNullable()
+      .integer('client_id')
       .references('id')
       .inTable('ClientLogin')
       .onDelete('CASCADE') 
@@ -16,7 +16,7 @@ exports.up = async function(knex, Promise) {
       .notNullable()
       .references('id')
       .inTable('Classes')
-      .onDelete('CASCADE')
+      .onDelete('CASCADE') 
       .onUpdate('CASCADE');
 
       tbl
@@ -59,6 +59,10 @@ exports.up = async function(knex, Promise) {
 //POST:
     //api/clients/:clientId/classes/:classId/signup
 
+    //api/clients/:clientId/classes
+
+
+    //api/classes/:classId/signup
       
       
 

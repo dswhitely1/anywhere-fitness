@@ -8,6 +8,8 @@ const authRouter = require('./auth/auth-router.js');
 const insRouter = require('./instructors/ins-router.js');
 const classRouter = require('./classes/class-router.js');
 
+const clientsRouter = require('./clients/clients-router.js');
+
 const server = express();
 
 server.use(helmet());
@@ -21,6 +23,7 @@ server.use('/api/auth', ClientauthRouter);
 server.use('/api/auth', authRouter);
 server.use('/api/instructors', insRouter);
 server.use('/api/classes', classRouter);
+server.use('/api/clients', clientsRouter);
 
 
 

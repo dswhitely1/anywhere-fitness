@@ -5,7 +5,8 @@ const db = knex(knexConfig.development);
 module.exports = {
     findUsers,
     findBy,
-    addUser}
+    addUser
+}
 
     
 
