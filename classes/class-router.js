@@ -20,11 +20,29 @@ router.get('/', restricted, async (req, res) => {
     }
   });
 
-
-router.get('/:CategoryId', restricted, async (req, res) => {
+//get classes by category id
+router.get('/categories/:categoryId', restricted, async (req, res) => {
 
     try {
-      const classe = await Classes.findClassesByCatId(req.params.CategoryId)
+      const classe = await Classes.findClassesByCatId(req.params.categoryId)
+      
+
+      res.status(200).json( classe);
+    } 
+    catch (error) {
+      // log error to server
+      console.log(error);
+      res.status(500).json({
+        message: 'Error getting the class',
+      });
+    }
+  });
+
+//get class by id
+  router.get('/:classId', restricted, async (req, res) => {
+
+    try {
+      const classe = await Classes.findClassById(req.params.classId)
       
 
       res.status(200).json( classe);
