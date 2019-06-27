@@ -7,6 +7,7 @@ const db=knex(knexConfig.development);
 module.exports = {
     findClasses,
     findClassById,
+    findClassesByCatId,
     addClass,
     removeClass,
     updateClass
@@ -25,6 +26,11 @@ function findClasses() {
 
 function findClassById(id) {
     return db('Classes').where({id}).first()
+
+}
+
+function findClassesByCatId(category_id) {
+    return db('Classes').where({category_id}).first()
 
 }
 

@@ -5,7 +5,6 @@ const restricted = require('../auth/restricted.js');
 
 
 
-
 router.get('/', restricted, async (req, res) => {
 
     try {
@@ -22,12 +21,10 @@ router.get('/', restricted, async (req, res) => {
   });
 
 
-
-
-router.get('/:id', restricted, async (req, res) => {
+router.get('/:CategoryId', restricted, async (req, res) => {
 
     try {
-      const classe = await Classes.findClassById(req.params.id)
+      const classe = await Classes.findClassesByCatId(req.params.CategoryId)
       
 
       res.status(200).json( classe);

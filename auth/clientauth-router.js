@@ -59,6 +59,7 @@ function generateToken(client) {
     username: client.username //boolean if not instructor then is client. True by default.
   };
   const secret = secrets.jwtSecret
+  console.log(secret)
   const options = {
   expiresIn: '1d',
   }
