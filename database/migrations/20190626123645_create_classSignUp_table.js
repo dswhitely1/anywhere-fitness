@@ -13,7 +13,6 @@ exports.up = async function(knex, Promise) {
     
       tbl
       .integer('class_id')
-      .notNullable()
       .references('id')
       .inTable('Classes')
       .onDelete('CASCADE') 
