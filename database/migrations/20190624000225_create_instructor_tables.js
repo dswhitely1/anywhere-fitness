@@ -48,8 +48,7 @@ exports.up = async function(knex, Promise) {
           .defaultTo('TBD');
   
           tbl
-          .date('date')
-          .defaultTo('TBD'); 
+          .date('date'); 
   
           tbl
           .string('time')
