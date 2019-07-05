@@ -15,8 +15,7 @@ module.exports = {
     
 
     async function addUser(user){
-        const [id]= await db('ClientLogin').insert(user);
-        return await db('ClientLogin').where({id}).first();
+        return  db('ClientLogin').insert(user);
     }
 
     function findUsers(){
