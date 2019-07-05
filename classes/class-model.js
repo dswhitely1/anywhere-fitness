@@ -1,7 +1,10 @@
-const knex=require('knex');
-const knexConfig = require('../knexfile.js');
-const express = require('express');
-const db=knex(knexConfig.development);
+// const knex = require('knex');
+// const knexConfig = require('../knexfile.js');
+// const db = knex(knexConfig.development);
+
+//environment to be dynamically set in Heroku
+const dbConfig=require('../dbConfig.js')
+const db = dbConfig.dbEnv
 
 
 module.exports = {
