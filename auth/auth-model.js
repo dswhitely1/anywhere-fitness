@@ -1,15 +1,17 @@
 const knex = require('knex');
 const knexConfig = require('../knexfile.js');
-const db = knex(knexConfig.development);
+//environment to be dynamically set in Heroku
+const dbConfig=require('../dbConfig.js')
+const db = dbConfig.dbEnv
+
+// const db = knex(knexConfig.development);
+
 
 module.exports = {
     findUsers,
     findBy,
     addUser}
 
-     function getAll() {
-        return db('volunteers') + db('businessess')
-      }
 
     
     async function addUser(user){
