@@ -5,10 +5,10 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('ClassSignup').insert([
-        {
-           client_id: 1,
-           class_id: 1,
-          },
+        // {
+        //    client_id: 1,
+        //    class_id: 1,
+        //   },
     //       {id: 2,
     //         client_id: '1',
     //         class_id: '2',
